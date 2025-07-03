@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kyan Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-4">
+
+  <!-- الشعار -->
+  <div class="flex justify-center mb-6">
+    <img src="logo.png" alt="Kyan Academy Logo" class="w-32 h-auto">
+  </div>
+
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-4">نموذج تسجيل الطلاب - Kyan Academy</h2>
+    <form action="https://formsubmit.co/letsstudyturkey@gmail.com" method="POST" class="grid gap-4">
+
+      <input type="hidden" name="_subject" value="تسجيل طالب جديد عبر الموقع">
+      <input type="hidden" name="_template" value="box">
+
+      <label>الاسم الكامل</label>
+      <input name="الاسم الكامل" type="text" required class="border p-2 rounded w-full"/>
+
+      <label>البريد الإلكتروني</label>
+      <input name="البريد الإلكتروني" type="email" required class="border p-2 rounded w-full"/>
+
+      <label>رقم الجوال</label>
+      <input name="رقم الجوال" type="tel" required class="border p-2 rounded w-full"/>
+
+      <label>التخصص</label>
+      <select name="التخصص" class="border p-2 rounded w-full">
+        <option>علوم الحاسوب</option>
+        <option>الهندسة</option>
+        <option>الطب</option>
+        <option>إدارة أعمال</option>
+        <option>أخرى</option>
+      </select>
+
+      <label>المرحلة الدراسية</label>
+      <select name="المرحلة الدراسية" class="border p-2 rounded w-full">
+        <option>ثانوي</option>
+        <option>جامعي</option>
+        <option>دراسات عليا</option>
+      </select>
+
+      <label>المدينة</label>
+      <input name="المدينة" type="text" class="border p-2 rounded w-full"/>
+
+      <label>الجنس</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="الجنس" value="ذكر"> ذكر</label>
+        <label><input type="radio" name="الجنس" value="أنثى"> أنثى</label>
+      </div>
+
+      <label>اختر الجامعات المرغوبة</label>
+      <select name="الجامعات المرغوبة" multiple class="border p-2 rounded w-full h-32">
+        <optgroup label="الجامعات الحكومية">
+          <option>جامعة كارابوك</option>
+          <option>جامعة بيتلس</option>
+          <option>جامعة بولو</option>
+          <option>جامعة كهرمان مرعش الاستقلالية</option>
+          <option>جامعة كر شهير</option>
+          <option>جامعة بيلجيك</option>
+        </optgroup>
+        <optgroup label="الجامعات الخاصة">
+          <option>جامعة اسطنبول فناربهتشة</option>
+          <option>جامعة اسطنبول يني يوز يل</option>
+          <option>جامعة اسطنبول آيدن</option>
+          <option>جامعة التن باش</option>
+          <option>جامعة البيروني</option>
+          <option>جامعة ايشيك</option>
+          <option>جامعة نيشان تاشة</option>
+          <option>جامعة باهتشة شهير</option>
+        </optgroup>
+      </select>
+
+      <label>ملاحظات إضافية</label>
+      <textarea name="ملاحظات إضافية" rows="4" class="border p-2 rounded w-full"></textarea>
+
+      <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">إرسال البيانات</button>
+    </form>
+  </div>
+
+  <!-- رابط واتساب -->
+  <div class="text-center mt-6">
+    <a href="https://wa.me/966500000000?text=مرحباً، أود التسجيل في أكاديمية كيان" target="_blank"
+       class="inline-block bg-green-500 text-white px-6 py-2 rounded shadow hover:bg-green-600">
+      تواصل معنا عبر واتساب
+    </a>
+  </div>
+
+</body>
+</html>
