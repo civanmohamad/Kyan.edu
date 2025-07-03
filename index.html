@@ -4,33 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kyan Academy</title>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans p-4">
 
-  <!-- الشعار -->
   <div class="flex justify-center mb-6">
     <img src="logo.png" alt="Kyan Academy Logo" class="w-32 h-auto">
   </div>
 
   <div class="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-md">
     <h2 class="text-2xl font-bold text-center mb-4">نموذج تسجيل الطلاب - Kyan Academy</h2>
-    <form action="https://formsubmit.co/letsstudyturkey@gmail.com" method="POST" class="grid gap-4">
-
-      <input type="hidden" name="_subject" value="تسجيل طالب جديد عبر الموقع">
-      <input type="hidden" name="_template" value="box">
+    <form id="kyan-form" class="grid gap-4">
 
       <label>الاسم الكامل</label>
-      <input name="الاسم الكامل" type="text" required class="border p-2 rounded w-full"/>
+      <input name="full_name" type="text" required class="border p-2 rounded w-full"/>
 
       <label>البريد الإلكتروني</label>
-      <input name="البريد الإلكتروني" type="email" required class="border p-2 rounded w-full"/>
+      <input name="email" type="email" required class="border p-2 rounded w-full"/>
 
       <label>رقم الجوال</label>
-      <input name="رقم الجوال" type="tel" required class="border p-2 rounded w-full"/>
+      <input name="phone" type="tel" required class="border p-2 rounded w-full"/>
 
       <label>التخصص</label>
-      <select name="التخصص" class="border p-2 rounded w-full">
+      <select name="major" class="border p-2 rounded w-full">
         <option>علوم الحاسوب</option>
         <option>الهندسة</option>
         <option>الطب</option>
@@ -39,57 +37,84 @@
       </select>
 
       <label>المرحلة الدراسية</label>
-      <select name="المرحلة الدراسية" class="border p-2 rounded w-full">
+      <select name="level" class="border p-2 rounded w-full">
         <option>ثانوي</option>
         <option>جامعي</option>
         <option>دراسات عليا</option>
       </select>
 
       <label>المدينة</label>
-      <input name="المدينة" type="text" class="border p-2 rounded w-full"/>
+      <input name="city" type="text" class="border p-2 rounded w-full"/>
 
       <label>الجنس</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="الجنس" value="ذكر"> ذكر</label>
-        <label><input type="radio" name="الجنس" value="أنثى"> أنثى</label>
+        <label><input type="radio" name="gender" value="ذكر"> ذكر</label>
+        <label><input type="radio" name="gender" value="أنثى"> أنثى</label>
       </div>
 
       <label>اختر الجامعات المرغوبة</label>
-      <select name="الجامعات المرغوبة" multiple class="border p-2 rounded w-full h-32">
-        <optgroup label="الجامعات الحكومية">
-          <option>جامعة كارابوك</option>
-          <option>جامعة بيتلس</option>
-          <option>جامعة بولو</option>
-          <option>جامعة كهرمان مرعش الاستقلالية</option>
-          <option>جامعة كر شهير</option>
-          <option>جامعة بيلجيك</option>
-        </optgroup>
-        <optgroup label="الجامعات الخاصة">
-          <option>جامعة اسطنبول فناربهتشة</option>
-          <option>جامعة اسطنبول يني يوز يل</option>
-          <option>جامعة اسطنبول آيدن</option>
-          <option>جامعة التن باش</option>
-          <option>جامعة البيروني</option>
-          <option>جامعة ايشيك</option>
-          <option>جامعة نيشان تاشة</option>
-          <option>جامعة باهتشة شهير</option>
-        </optgroup>
+      <select name="universities" multiple class="border p-2 rounded w-full h-32">
+        <option>جامعة كارابوك</option>
+        <option>جامعة بيتلس</option>
+        <option>جامعة بولو</option>
+        <option>جامعة كهرمان مرعش الاستقلالية</option>
+        <option>جامعة كر شهير</option>
+        <option>جامعة بيلجيك</option>
+        <option>جامعة اسطنبول فناربهتشة</option>
+        <option>جامعة اسطنبول يني يوز يل</option>
+        <option>جامعة اسطنبول آيدن</option>
+        <option>جامعة التن باش</option>
+        <option>جامعة البيروني</option>
+        <option>جامعة ايشيك</option>
+        <option>جامعة نيشان تاشة</option>
+        <option>جامعة باهتشة شهير</option>
       </select>
 
       <label>ملاحظات إضافية</label>
-      <textarea name="ملاحظات إضافية" rows="4" class="border p-2 rounded w-full"></textarea>
+      <textarea name="notes" rows="4" class="border p-2 rounded w-full"></textarea>
 
       <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">إرسال البيانات</button>
     </form>
   </div>
 
-  <!-- رابط واتساب -->
-  <div class="text-center mt-6">
-    <a href="https://wa.me/966500000000?text=مرحباً، أود التسجيل في أكاديمية كيان" target="_blank"
-       class="inline-block bg-green-500 text-white px-6 py-2 rounded shadow hover:bg-green-600">
-      تواصل معنا عبر واتساب
-    </a>
-  </div>
+  <script>
+    emailjs.init("h2l3jqbqJgiZWLU-6");
+
+    document.getElementById("kyan-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        full_name: form.full_name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        major: form.major.value,
+        level: form.level.value,
+        city: form.city.value,
+        gender: form.gender.value,
+        universities: Array.from(form.universities.selectedOptions).map(o => o.value).join(", "),
+        notes: form.notes.value
+      };
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      let y = 10;
+      Object.entries(data).forEach(([key, value]) => {
+        doc.text(`${key}: ${value}`, 10, y);
+        y += 10;
+      });
+      const pdfBase64 = doc.output("datauristring");
+
+      emailjs.send("service_fc4tjnh", "template_l86mwka", {
+        ...data,
+        attachment: pdfBase64
+      }).then(() => {
+        alert("تم إرسال البيانات بنجاح!");
+        form.reset();
+      }, (error) => {
+        alert("حدث خطأ أثناء الإرسال: " + JSON.stringify(error));
+      });
+    });
+  </script>
 
 </body>
 </html>
